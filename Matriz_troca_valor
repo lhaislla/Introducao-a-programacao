@@ -1,0 +1,38 @@
+n = int(input("Digite o numero: "))
+
+while n!= 0:
+    matriz = []
+    for i in range(n):
+        matriz.append([])
+    for i in range(n):
+        for j in range(n):
+            matriz[i].append(0) 
+    for i in range(n):
+        valor = i+1
+        if valor == 1:
+            crescente = True
+        else:
+            crescente = False
+        for j in range(n):
+            if valor == 1:
+                matriz[i][j]=1
+                crescente = True
+                valor = 2
+            elif valor==n:
+                matriz[i][j] = valor
+                if crescente:
+                    valor = 1
+                else:
+                    valor = n-1
+            elif crescente:
+                matriz[i][j] = valor
+                valor += 1
+            else:
+                matriz[i][j] = valor
+                valor -= 1
+    for i in range(n):
+        for j in range(n-1):
+            print("%3s" %matriz[i][j],end=" ")
+        print("%3s" %matriz[i][n-1])
+    print()
+    n = int(input("Digite o numero: "))
