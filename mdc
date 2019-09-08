@@ -1,0 +1,37 @@
+def mdc(x,y):
+    if y > x:
+        x,y = y,x
+    div = x // y
+    resto = x % y
+    while resto !=0:
+        x = y
+        y = resto
+        div = x // y
+        resto = x % y
+    return y
+n = int(input())
+for i in range(n):
+    expressao = input()
+    lista = expressao.split()
+    n1 = int(lista[0])
+    d1 = int(lista[2])
+    op = lista[3]
+    n2 = int(lista[4])
+    d2 = int(lista[6])
+    if op == "+":
+        numerador = n1*d2 + n2*d1
+        denominador = d1 * d2
+    elif op =="-":
+        numerador = n1*d2 - n2*d1
+        denominador = d1*d2
+    elif op=="*":
+        numerador = n1*n2
+        denominador = d1*d2
+    else:
+        numerador = n1*d2
+        denominador = n2*d1
+    numeradorFinal = numerador // mdc(abs(numerador),abs(denominador))
+    denominadorFinal = denominador // mdc (abs(numerador),abs(denominador))
+    print("%d/%d = %d/%d" %(numerador,denominador,numeradorFinal,denominadorFinal))
+    
+
