@@ -1,0 +1,4 @@
+#Exercicios
+#lição1°
+msg="Olá, mundo! "
+print('\033[0;30;47m{}'.format(msg))
